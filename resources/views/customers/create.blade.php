@@ -4,6 +4,6 @@
 
 @section('content')
 
-    <h3>Customer Create</h3>
+    <h3>Customer Create Page</h3>
 
 @endsection
