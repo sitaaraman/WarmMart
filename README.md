@@ -1,4 +1,7 @@
-<<<<<<< HEAD
+
+## WarmMart
+<p align="center">WarmMart is a simple online store where the admin can add, edit, and delete products, while users can only browse items, view details, add to cart, and place orders. A clean, secure, and easy-to-use system for smooth product management and shopping.</p>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -58,7 +61,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# WarmMart
-WarmMart is a simple online store where the admin can add, edit, and delete products, while users can only browse items, view details, add to cart, and place orders. A clean, secure, and easy-to-use system for smooth product management and shopping.
->>>>>>> a1e02f13f14605ab7923d291e50acfafd08170fc
