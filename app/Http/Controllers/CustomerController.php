@@ -23,10 +23,11 @@ class CustomerController extends Controller
             'email' => 'required|string|email|max:255|unique:customers',
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string|max:500',
-            'profile' => 'nullable|string|max:255',
+            'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
+        
         if($request->hasFile('profile')){
             $file = $request->file('profile');
             $filename = time().'_'.$file->getClientOriginalName();
@@ -35,6 +36,8 @@ class CustomerController extends Controller
         } else {
             $request['profile'] = null;
         }
+        
+        // dd ($request->all());
 
         $customer = Customer::create([
             'name' => $request->name,
@@ -44,6 +47,8 @@ class CustomerController extends Controller
             'profile' => $request->profile,
             'password' => $request->password,
         ]);
+
+        // dd ($customer);
 
         return redirect()->route('customers.index')->with('success', 'Customer created successfully.');
     }
