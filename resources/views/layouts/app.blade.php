@@ -14,19 +14,21 @@
     </head>
     <body>
         <header class="header">
-            <nav class="navbar">
-                <a href="{{ url('/') }}" class="nav-link">{{ config('app.name', 'WarmMart') }}</a>
-                <a href="{{ route('customers.index') }}" class="nav-link">Customers</a>
-                <a href="{{ route('customers.index') }}" class="nav-link">Products</a>
+            <nav class="navbar navbar-expand-lg" style="background-color: #537d5d;">
+                <div class="container-fluid">
+                    <a href="{{ route('customers.index') }}" class="nav-link" style="color: #fffdf6;">{{ config('app.name', 'WarmMart') }}</a>
+                    <a href="{{ route('customers.create') }}" class="nav-link" style="color: #fffdf6;">Customers</a>
+                    <a href="{{ route('customers.create') }}" class="nav-link" style="color: #fffdf6;">Products</a>
+                </div>
             </nav>
         </header>
 
-        <main>
+        <main style="background-color: #ecfae5; min-height: 80vh; padding: 1em;">
             @yield('content')
         </main>
 
-        <footer>
-            <p>&copy; {{ date('Y') }} {{ config('app.name', 'WarmMart') }}. All rights reserved.</p>
+        <footer style="background-color: #73946b;">
+            <p style="color: #fffdf6;">&copy; {{ date('Y') }} {{ config('app.name', 'WarmMart') }}. All rights reserved.</p>
         </footer>
     </body>
 </html>

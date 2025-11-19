@@ -26,16 +26,18 @@ class CustomerController extends Controller
             'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'password' => 'required|string|min:6|confirmed',
         ]);
-
         
+        $filename = null;
+
         if($request->hasFile('profile')){
             $file = $request->file('profile');
             $filename = time().'_'.$file->getClientOriginalName();
             $file->move(public_path('profiles'), $filename);
-            $request['profile'] = $filename;
-        } else {
-            $request['profile'] = null;
-        }
+            // $request['profile'] = $filename;
+        } 
+        // else {
+        //     $request['profile'] = null;
+        // }
         
         // dd ($request->all());
 
@@ -44,7 +46,7 @@ class CustomerController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
-            'profile' => $request->profile,
+            'profile' => $filename,
             'password' => $request->password,
         ]);
 
@@ -55,6 +57,7 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = Customer::findOrFail($id);
+        // dd ($customer);
         return view('customers.show', compact('customer'));
     }
     public function edit($id)
@@ -69,28 +72,30 @@ class CustomerController extends Controller
             'email' => 'required|string|email|max:255|unique:customers,email,' . $id,
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string|max:500',
-            'profile' => 'nullable|string|max:255',
+            'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'password' => 'nullable|string|min:6|confirmed',
         ]);
 
         $customer = Customer::findOrFail($id);
         // $customer['profile'] = $request['old_profile'];
+        $filename = $customer->old_profile;
 
         if($request->hasFile('profile')){
             $file = $request->file('profile');
             $filename = time().'_'.$file->getClientOriginalName();
             $file->move(public_path('profiles'), $filename);
-            $customer['profile'] = $filename;
-        } else {
-            $customer['profile'] = $request['old_profile'];
-        }
+            // $request['profile'] = $filename;
+        } 
+        // else {<input type="hidden" name="old_profile" value="{{ $customer->profile }}">
+        //     $request['profile'] = $request['old_profile'];
+        // }
 
         $customer->update([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
-            'profile' => $request->profile,
+            'profile' => $filename,
         ]);
 
         return redirect()->route('customers.index')->with('success', 'Customer updated successfully.');
