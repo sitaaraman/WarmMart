@@ -68,7 +68,8 @@
 
                 <button type="submit" class="btn btn-primary mt-3">Update Product</button>
                 <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-secondary mt-3">Cancel</a>
-
+                <a href="{{ route('admin.products.destroy', $product->id) }}" class="btn btn-danger mt-3">Delete</a>
+                
             </form>
 
         </div>

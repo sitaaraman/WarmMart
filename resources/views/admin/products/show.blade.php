@@ -47,7 +47,8 @@
             @else
                 <p class="text-muted">No images available.</p>
             @endif
-
+            
+            <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary mt-3">Edit Product</a>
             <a href="{{ route('admin.products.index') }}" class="btn btn-secondary mt-3">Back to Products</a>
 
         </div>
