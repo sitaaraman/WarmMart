@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Admin\Product;
 
 class Customer extends Model
 {
@@ -17,4 +19,9 @@ class Customer extends Model
         'password',
         'is_admin',
     ];
+
+    public function products(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'customer_product', 'customer_id', 'product_id')->withTimestamps();
+    }
 }

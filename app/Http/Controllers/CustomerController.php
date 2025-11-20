@@ -10,7 +10,9 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        return view('customers.index');
+        $products = Product::all();
+        // $images = json_decode($products->image, true) ?? [];, 'images'
+        return view('customers.index', compact('products'));
     }
     public function create()
     {
