@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $p->name }}</h5>
                     <p class="card-text">{{ $p->description }}</p> 
-                    <p class="card-text"><strong>Price:</strong> ${{ $p->price }}</p>
+                    <p class="card-text"><strong>Price:</strong> &#8377;{{ $p->price }}</p>
                 </div>
             </div>
 

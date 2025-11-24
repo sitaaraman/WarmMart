@@ -28,7 +28,7 @@
         </main>
 
         <footer style="background-color: #73946b;">
-            <p style="color: #fffdf6;">&copy; {{ date('Y') }} {{ config('app.name', 'WarmMart') }}. All rights reserved.</p>
+            <p style="color: #fffdf6;" class="m-0">&copy; {{ date('Y') }} {{ config('app.name', 'WarmMart') }}. All rights reserved.</p>
         </footer>
     </body>
 </html>
